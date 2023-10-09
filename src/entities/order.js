@@ -1,14 +1,16 @@
-import Product from "./product.js"
+import OrderItem from "./orderItem.js"
 
 export default class Order{
 
-    constructor(id, buyer, seller, date, products) {
+    constructor(id, status, customerId, sellerId, moment, items = []) {
         this.id = id
-        this.buyer = buyer
-        this.seller = seller
-        this.date = date
-        products.forEach(() => {
-            new Product()
-        })
+        this.staus = status
+        this.customerId = customerId
+        this.sellerId = sellerId
+        this.moment = moment
+    }
+
+    addItem(OrderItem) {
+       this.items.push(OrderItem) 
     }
 }
