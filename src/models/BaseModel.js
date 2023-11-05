@@ -10,7 +10,7 @@ export default class BaseModel{
     }
 
     findById(id) {
-        return this.db.find((item) => item.id === id)
+        return this.db.find((item) => item.id == id)
     }
 
     create(item) {

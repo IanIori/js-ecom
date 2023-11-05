@@ -1,6 +1,9 @@
 import Category from "../entities/category.js";
 import Customer from "../entities/customer.js";
 import OrderItem from "../entities/orderItem.js";
+import Seller from "../entities/seller.js";
+import Order from "../entities/order.js";
+import Product from "../entities/product.js";
 
 const db = {
     categories: [
@@ -73,15 +76,15 @@ const db = {
 }
 
 //Needs verification
-db[5][0].addItem(db[4][0]);
-db[5][0].addItem(db[4][1]);
-db[5][1].addItem(db[4][2]);
-db[5][1].addItem(db[4][3]);
-db[5][2].addItem(db[4][4]);
-db[5][2].addItem(db[4][5]);
-db[5][3].addItem(db[4][6]);
-db[5][3].addItem(db[4][7]);
-db[5][4].addItem(db[4][8]);
-db[5][4].addItem(db[4][9]);
+db.orders[0].addItem(db.orderitems[0])
+db.orders[0].addItem(db.orderitems[1])
+db.orders[1].addItem(db.orderitems[2])
+db.orders[1].addItem(db.orderitems[3])
+db.orders[2].addItem(db.orderitems[4])
+db.orders[2].addItem(db.orderitems[5])
+db.orders[3].addItem(db.orderitems[6])
+db.orders[3].addItem(db.orderitems[7])
+db.orders[4].addItem(db.orderitems[8])
+db.orders[4].addItem(db.orderitems[9])
 
 export default db

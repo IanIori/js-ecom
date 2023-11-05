@@ -8,6 +8,7 @@ export default class Order{
         this.customerId = customerId
         this.sellerId = sellerId
         this.moment = moment
+        this.items = items
     }
 
     addItem(OrderItem) {
