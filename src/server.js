@@ -12,8 +12,8 @@ app.get('/healthcheck', (req,res) => {
 const categoryRoutes = new CategoryRoutes(db)
 app.use('/categories', categoryRoutes.routes())
 
-/* const userRoutes = new UserRoutes(db)
-app.use('/users', userRoutes.routes()) */
+/* const userrorutes = new Userrorutes(db)
+app.use('/users', userrorutes.routes()) */
 
 app.listen(3000, () => {
     console.log("Server working on port 3000")

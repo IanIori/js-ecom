@@ -6,7 +6,6 @@ export default class Order{
         this.id = id
         this.staus = status
         this.customerId = customerId
-        this.sellerId = sellerId
         this.moment = moment
         this.items = items
     }

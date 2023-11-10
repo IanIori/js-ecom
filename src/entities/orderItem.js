@@ -6,6 +6,7 @@ export default class OrderItem{
         this.id = id
         this.productId = productId
         this.quantity = quantity
+        this.sellerId = sellerId
     }
 
     subtotal() {

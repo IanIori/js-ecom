@@ -18,10 +18,10 @@ export default class CategoryRoutes{
 
         router.get('/:id', (req,res) => {
             const {id} = req.params
-            if(!id || id == "") return res.status(400).json({erro:'Missing category Id'})
+            if(!id || id == "") return res.status(400).json({error:'Missing category Id'})
 
             const category = this.db.findById(Number(id))
-            if(!category) return res.status(404).json({erro:'Category not found'})
+            if(!category) return res.status(404).json({error:'Category not found'})
 
             res.json(category)
         })
@@ -29,9 +29,9 @@ export default class CategoryRoutes{
         router.post('/', (req,res) => {
             const {id,name,description} = req.body
 
-            if(!id || id == "") return res.status(400).json({erro:'Missing category Id'})
-            if(!name || name == "") return res.status(400).json({erro:'Missing category name'})
-            if(!description || description == "") return res.status(400).json({erro:'Missing category description'})
+            if(!id || id == "") return res.status(400).json({error:'Missing category Id'})
+            if(!name || name == "") return res.status(400).json({error:'Missing category name'})
+            if(!description || description == "") return res.status(400).json({error:'Missing category description'})
 
             const category = new Category(id,name,description)
             this.db.create(category)
@@ -42,9 +42,9 @@ export default class CategoryRoutes{
             const {categoryId} = req.params
             const {id,name,description} = req.body
 
-            if(!id || id == "") return res.status(400).json({erro:'Missing category Id'})
-            if(!name || name == "") return res.status(400).json({erro:'Missing category name'})
-            if(!description || description == "") return res.status(400).json({erro:'Missing category description'})
+            if(!id || id == "") return res.status(400).json({error:'Missing category Id'})
+            if(!name || name == "") return res.status(400).json({error:'Missing category name'})
+            if(!description || description == "") return res.status(400).json({error:'Missing category description'})
 
             const category = new Category(id,name,description)
             this.db.update(categoryId, category)
@@ -53,10 +53,10 @@ export default class CategoryRoutes{
 
         router.delete('/:id', (req,res) => {
             const {id} = req.params
-            if(!id || id == "") return res.status(400).json({erro:'Missing category Id'})
+            if(!id || id == "") return res.status(400).json({error:'Missing category Id'})
 
             const result = this.db.delete(Number(id))
-            if(!result) return res.status(404).json({Error: 'Item not found for deletion'})
+            if(!result) return res.status(404).json({error: 'Item not found for deletion'})
 
             return res.status(204).send()
         })
