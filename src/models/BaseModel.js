@@ -19,14 +19,14 @@ export default class BaseModel{
 
     delete(id) {
         const index = this.db.findIndex(item => item.id == id)
-        if(index === -1) throw Error("Item not found")
+        if(index === -1) throw error("Item not found")
         this.db.splice(index,1)
         return true
     }
 
     update(id, item) {
         const index = this.db.findIndex(item => item.id == id)
-        if(index === -1) throw Error("Item not found")
+        if(index === -1) throw error("Item not found")
         this.db[index] = item
         return true
     }
