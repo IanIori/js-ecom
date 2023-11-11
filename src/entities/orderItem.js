@@ -2,7 +2,7 @@ import Product from "./product.js"
 
 export default class OrderItem{
 
-    constructor(id, productId, quantity) {
+    constructor(id, productId, quantity,sellerId) {
         this.id = id
         this.productId = productId
         this.quantity = quantity

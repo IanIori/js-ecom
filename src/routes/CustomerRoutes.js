@@ -2,7 +2,7 @@ import { Router } from "express";
 import CustomerModel from "../models/CustomerModel.js";
 import Customer from "../entities/customer.js";
 
-export default class Customerrorutes{
+export default class CustomerRoutes{
     constructor(db) {
         this.db = new CustomerModel(db)
     }
