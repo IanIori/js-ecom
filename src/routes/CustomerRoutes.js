@@ -27,16 +27,16 @@ export default class Customerrorutes{
         })
 
         router.post('/', (req,res) => {
-            const {id,name,address,email,cpf} = req.body
+            const {id,name,address,email,cpf,isSeller} = req.body
 
             if(!id || id == "") return res.status(400).json({error:'Missing Customer Id'})
             if(!name || name == "") return res.status(400).json({error:'Missing Customer name'})
             if(!address || address == "") return res.status(400).json({error:'Missing Customer address'})
             if(!email || email == "") return res.status(400).json({error:'Missing Customer email'})
             if(!cpf || cpf == "") return res.status(400).json({error:'Missing Customer CPF'})
+            if(isSeller == undefined) return res.status(400).json({error:'Missing Customer seller status'})
 
-
-            const customer = new Customer(id,name,address,email,cpf)
+            const customer = new Customer(id,name,address,email,cpf,isSeller)
             this.db.create(customer)
             res.status(201).json(customer)
         })
@@ -50,8 +50,9 @@ export default class Customerrorutes{
             if(!address || address == "") return res.status(400).json({error:'Missing Customer address'})
             if(!email || email == "") return res.status(400).json({error:'Missing Customer email'})
             if(!cpf || cpf == "") return res.status(400).json({error:'Missing Customer CPF'})
+            if(isSeller == undefined) return res.status(400).json({error:'Missing Customer seller status'})
 
-            const customer = new Customer(id,name,address,email,cpf)
+            const customer = new Customer(id,name,address,email,cpf,isSeller)
             this.db.update(customerId, customer)
             res.status(200).json(customer)
         })
@@ -61,7 +62,7 @@ export default class Customerrorutes{
             if(!id || id == "") return res.status(400).json({error:'Missing Customer Id'})
 
             const result = this.db.delete(Number(id))
-            if(!result) return res.status(404).json({errorr: 'Item not found for deletion'})
+            if(!result) return res.status(404).json({error: 'Item not found for deletion'})
 
             return res.status(204).send()
         })

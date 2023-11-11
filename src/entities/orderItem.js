@@ -10,6 +10,6 @@ export default class OrderItem{
     }
 
     subtotal() {
-        return this.quantity * this.productId.price //need to find the correct way
+        //return this.quantity * this.productId.price - need to find the correct way
     }
 }
