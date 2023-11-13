@@ -10,6 +10,9 @@ import ProductRoutes from './routes/ProductRoutes.js'
 import ShipmentRoutes from './routes/ShipmentRoutes.js'
 import WishlistRoutes from './routes/WishlistRoutes.js'
 
+import swaggerUi from "swagger-ui-express"
+import swaggerDocument from "./swagger/config.js"
+
 const app = express()
 app.use(express.json())
 
@@ -17,6 +20,7 @@ app.get('/healthcheck', (req,res) => {
     res.status(200).send("Ok!")
 })
 
+//Entity routes
 const cartRoutes = new CartRoutes(db)
 app.use('/carts', cartRoutes.routes())
 
@@ -43,6 +47,10 @@ app.use('/shipments', shipmentRoutes.routes())
 
 const wishlistRoutes = new WishlistRoutes(db)
 app.use('/wishlists', wishlistRoutes.routes())
+
+// Swagger
+app.use('/docs', swaggerUi.serve, 
+swaggerUi.setup(swaggerDocument, { explorer: true }))
 
 app.listen(3000, () => {
     console.log("Server working on port 3000")
