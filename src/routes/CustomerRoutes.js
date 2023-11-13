@@ -27,32 +27,32 @@ export default class CustomerRoutes{
         })
 
         router.post('/', (req,res) => {
-            const {id,name,address,email,cpf,isSeller} = req.body
+            const {id,name,address,email,identifier,isSeller} = req.body
 
             if(!id || id == "") return res.status(400).json({error:'Missing Customer Id'})
             if(!name || name == "") return res.status(400).json({error:'Missing Customer name'})
             if(!address || address == "") return res.status(400).json({error:'Missing Customer address'})
             if(!email || email == "") return res.status(400).json({error:'Missing Customer email'})
-            if(!cpf || cpf == "") return res.status(400).json({error:'Missing Customer CPF'})
+            if(!identifier || identifier == "") return res.status(400).json({error:'Missing Customer identifier'})
             if(isSeller == undefined) return res.status(400).json({error:'Missing Customer seller status'})
 
-            const customer = new Customer(id,name,address,email,cpf,isSeller)
+            const customer = new Customer(id,name,address,email,identifier,isSeller)
             this.db.create(customer)
             res.status(201).json(customer)
         })
 
         router.put('/:CustomerId', (req,res) => {
             const {customerId} = req.params
-            const {id,name,address,email,cpf} = req.body
+            const {id,name,address,email,identifier} = req.body
 
             if(!id || id == "") return res.status(400).json({error:'Missing Customer Id'})
             if(!name || name == "") return res.status(400).json({error:'Missing Customer name'})
             if(!address || address == "") return res.status(400).json({error:'Missing Customer address'})
             if(!email || email == "") return res.status(400).json({error:'Missing Customer email'})
-            if(!cpf || cpf == "") return res.status(400).json({error:'Missing Customer CPF'})
+            if(!identifier || identifier == "") return res.status(400).json({error:'Missing Customer identifier'})
             if(isSeller == undefined) return res.status(400).json({error:'Missing Customer seller status'})
 
-            const customer = new Customer(id,name,address,email,cpf,isSeller)
+            const customer = new Customer(id,name,address,email,identifier,isSeller)
             this.db.update(customerId, customer)
             res.status(200).json(customer)
         })

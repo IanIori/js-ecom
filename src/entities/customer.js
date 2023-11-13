@@ -1,11 +1,11 @@
 export default class Customer{
 
-    constructor(id, name, address, email, cpf, isSeller) {
+    constructor(id, name, address, email, identifier, isSeller) {
         this.id = id
         this.name = name
         this.address = address
         this.email = email
-        this.cpf = cpf
+        this.identifier = identifier
         this.isSeller = isSeller
         this.products = []
     }

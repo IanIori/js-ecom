@@ -27,28 +27,28 @@ export default class OrderItemRoutes{
         })
 
         router.post('/', (req,res) => {
-            const {id,productId,quantity,sellerId} = req.body
+            const {id,productId,quantity,customerId} = req.body
 
             if(!id || id == "") return res.status(400).json({error:'Missing OrderItem Id'})
             if(!productId || productId == "") return res.status(400).json({erro:'Missing OrderItem product Id'})
             if(!quantity || quantity == "") return res.status(400).json({error:'Missing OrderItem quantity'})
-            if(!sellerId || sellerId == "") return res.status(400).json({error:'Missing OrderItem seller Id'})
+            if(!customerId || customerId == "") return res.status(400).json({error:'Missing OrderItem seller Id'})
 
-            const orderItem = new OrderItem(id,productId,quantity,sellerId)
+            const orderItem = new OrderItem(id,productId,quantity,customerId)
             this.db.create(orderItem)
             res.status(201).json(orderItem)
         })
 
         router.put('/:OrderItemId', (req,res) => {
             const {orderItemId} = req.params
-            const {id,productId,quantity,sellerId} = req.body
+            const {id,productId,quantity,customerId} = req.body
 
             if(!id || id == "") return res.status(400).json({error:'Missing OrderItem Id'})
             if(!productId || productId == "") return res.status(400).json({error:'Missing OrderItem product Id'})
             if(!quantity || quantity == "") return res.status(400).json({error:'Missing OrderItem quantity'})
-            if(!sellerId || sellerId == "") return res.status(400).json({error:'Missing OrderItem seller Id'})
+            if(!customerId || customerId == "") return res.status(400).json({error:'Missing OrderItem seller Id'})
 
-            const orderItem = new OrderItem(id,productId,quantity,sellerId)
+            const orderItem = new OrderItem(id,productId,quantity,customerId)
             this.db.update(orderItemId, orderItem)
             res.status(200).json(orderItem)
         })

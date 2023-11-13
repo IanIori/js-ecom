@@ -2,11 +2,11 @@ import Product from "./product.js"
 
 export default class OrderItem{
 
-    constructor(id, productId, quantity,sellerId) {
+    constructor(id, productId, quantity,customerId) {
         this.id = id
         this.productId = productId
         this.quantity = quantity
-        this.sellerId = sellerId
+        this.customerId = customerId
     }
 
     subtotal() {
