@@ -2,7 +2,7 @@ import OrderItem from "./orderItem.js"
 
 export default class Order{
 
-    constructor(id, status, customerId, sellerId, moment, items = []) {
+    constructor(id, status, customerId, moment, items = []) {
         this.id = id
         this.staus = status
         this.customerId = customerId
@@ -12,5 +12,9 @@ export default class Order{
 
     addItem(OrderItem) {
        this.items.push(OrderItem) 
+    }
+
+    getDateAsString() {
+        return this.moment.toString()
     }
 }
