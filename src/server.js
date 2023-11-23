@@ -54,7 +54,7 @@ app.use('/docs', swaggerUi.serve,
 swaggerUi.setup(swaggerDocument, { explorer: true }))
 
 const port = process.env.PORT || 3000
-/* app.listen(port, () => {
+app.listen(port, () => {
     console.log("Server working on port " + port)
-}) */
+})
 app.use(cors())
