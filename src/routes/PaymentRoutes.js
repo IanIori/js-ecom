@@ -1,5 +1,5 @@
 import { Router } from "express";
-import PaymentModel from "../models/paymentModel.js";
+import PaymentModel from "../models/PaymentModel.js";
 import Payment from "../entities/payment.js";
 
 export default class PaymentRoutes{
