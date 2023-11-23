@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import db from "./database/config.js";
 import CartRoutes from './routes/CartRoutes.js'
 import CategoryRoutes from "./routes/CategoryRoutes.js";
@@ -52,6 +53,8 @@ app.use('/wishlists', wishlistRoutes.routes())
 app.use('/docs', swaggerUi.serve, 
 swaggerUi.setup(swaggerDocument, { explorer: true }))
 
-app.listen(3000, () => {
-    console.log("Server working on port 3000")
-})
+const port = process.env.PORT || 3000
+/* app.listen(port, () => {
+    console.log("Server working on port " + port)
+}) */
+app.use(cors())
